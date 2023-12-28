@@ -3,7 +3,6 @@ package com.example.medic.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
 
