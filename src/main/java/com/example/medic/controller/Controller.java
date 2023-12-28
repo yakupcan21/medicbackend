@@ -2,6 +2,7 @@ package com.example.medic.controller;
 
 import com.example.medic.entity.*;
 import com.example.medic.repos.*;
+import jakarta.jws.soap.SOAPBinding;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,14 +58,14 @@ public class Controller {
         if(Patients.isPresent()) return Patients.get();
         return new patients();
     }
-    @GetMapping("/patreports/{id}")
-    public allpatreports getPatReports(@PathVariable Long id){
-        Optional<allpatreports> reports = AllPatReportsRepository.findById(id);
-        if(reports.isPresent()) return reports.get();
-        return new allpatreports();
+    @GetMapping("/alluserinfo/{id}")
+    public userinfo getUserInfo(@PathVariable Long id){
+        Optional<userinfo> uinfo = UserInfoRepository.findById(id);
+        if(uinfo.isPresent()) return uinfo.get();
+        return new userinfo();
     }
 
-    @PostMapping(path ="/createPassenger") // Different endpoint path for creating User
-    public Passenger post(@RequestBody Passenger user) { return passengerRepository.save(user); }
+    @PostMapping(path ="/login")
+    public login post(@RequestBody login user) { return loginRepository.save(user); }
 
 }
