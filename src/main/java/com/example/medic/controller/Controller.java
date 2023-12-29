@@ -65,7 +65,8 @@ public class Controller {
         return new userinfo();
     }
 
-    @PostMapping(path ="/login")
-    public login post(@RequestBody login user) { return loginRepository.save(user); }
-
+    @PostMapping(path ="/patreports")
+    public allpatreports post(@RequestBody allpatreports reports) { return AllPatReportsRepository.save(reports); }
+    @PostMapping(path ="/loginpat")
+    public login post(@RequestBody login loginpat) { return LoginRepository.save(loginpat);}
 }
