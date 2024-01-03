@@ -18,6 +18,7 @@ public class patients {
     private String patientSurname;
     private String patientDateOfBirth;
     private long patientPhoneNo;
+    private String patientEmail;
     private String patientPassword;
     private int patientAge;
     private int patientHeight;
@@ -29,12 +30,13 @@ public class patients {
 
     public patients() { super(); }
 
-    public patients(long patientId, String patientName, String patientSurname, String patientDateOfBirth, long patientPhoneNo, String patientPassword, int patientAge, int patientHeight, int patientWeight, int patientBmi ) {
+    public patients(long patientId, String patientName, String patientSurname, String patientDateOfBirth, long patientPhoneNo, String patientEmail, String patientPassword, int patientAge, int patientHeight, int patientWeight, int patientBmi ) {
         this.patientId = patientId;
         this.patientName = patientName;
         this.patientSurname = patientSurname;
         this.patientDateOfBirth = patientDateOfBirth;
         this.patientPhoneNo = patientPhoneNo;
+        this.patientEmail = patientEmail;
         this.patientPassword = patientPassword;
         this.patientAge = patientAge;
         this.patientHeight = patientHeight;
