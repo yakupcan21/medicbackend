@@ -1,5 +1,4 @@
 package com.example.medic.entity;
 
-public class login {
-
+public class doctor {
 }

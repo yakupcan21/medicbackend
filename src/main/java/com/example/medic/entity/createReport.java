@@ -1,4 +1,4 @@
 package com.example.medic.entity;
 
-public class allpatreports {
+public class createReport {
 }
