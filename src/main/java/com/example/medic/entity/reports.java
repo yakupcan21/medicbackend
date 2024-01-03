@@ -1,10 +1,6 @@
 package com.example.medic.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +18,9 @@ public class reports {
     @OneToOne
     private patients patient;
 
+    @OneToOne(mappedBy = "reports", cascade = CascadeType.ALL)
+    private createReport createReport;
+
     public reports() { super(); }
 
     public reports(String rapDate, long rapNum, String doctorName) {
@@ -29,4 +28,7 @@ public class reports {
         this.rapNum = rapNum;
         this.doctorName = doctorName;
     }
+
+
+
 }
