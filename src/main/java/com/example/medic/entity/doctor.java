@@ -1,20 +1,18 @@
 package com.example.medic.entity;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "doctor")
 public class doctor {
-    //Will be accessed through admin page and adding/removal of doctor
-    //                    will be made through the admin panel
     @Id
     @GeneratedValue
     private long docId;
@@ -39,7 +37,7 @@ public class doctor {
         this.docSurname = docSurname;
         this.docDateOfBirth = docDateOfBirth;
         this.docPhoneNo = docPhoneNo;
-        this.docPassword = docPassword;
+        setDocPassword(docPassword);
         this.docAge = docAge;
         this.docHeight = docHeight;
         this.docWeight = docWeight;
@@ -47,7 +45,11 @@ public class doctor {
         this.docTitle = docTitle;
         this.docDepartment = docDepartment;
         this.docHospital = docHospital;
+    }
 
+    public void setDocPassword(String plainPassword) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        this.docPassword = passwordEncoder.encode(plainPassword);
     }
 
 }

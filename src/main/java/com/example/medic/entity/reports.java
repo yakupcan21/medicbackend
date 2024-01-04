@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Random;
+
 @Setter
 @Getter
 @Entity
@@ -21,7 +23,9 @@ public class reports {
     @OneToOne(mappedBy = "reports", cascade = CascadeType.ALL)
     private createReport createReport;
 
-    public reports() { super(); }
+    public reports() {
+        super();
+    }
 
     public reports(String rapDate, long rapNum, String doctorName) {
         this.rapDate = rapDate;
@@ -29,6 +33,8 @@ public class reports {
         this.doctorName = doctorName;
     }
 
-
-
+    public void generateRandomRapNum() {
+        Random random = new Random();
+        this.rapNum = (long) (random.nextDouble() * 10000000000L);
+    }
 }

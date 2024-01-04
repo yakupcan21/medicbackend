@@ -3,6 +3,7 @@ package com.example.medic.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.math.BigInteger;
 
@@ -36,11 +37,17 @@ public class patients {
         this.patientSurname = patientSurname;
         this.patientDateOfBirth = patientDateOfBirth;
         this.patientPhoneNo = patientPhoneNo;
+        setPatPassword(patientPassword);
         this.patientEmail = patientEmail;
         this.patientPassword = patientPassword;
         this.patientAge = patientAge;
         this.patientHeight = patientHeight;
         this.patientWeight = patientWeight;
         this.patientBmi = patientBmi;
+    }
+
+    public void setPatPassword(String plainPassword) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        this.patientPassword = passwordEncoder.encode(plainPassword);
     }
 }
