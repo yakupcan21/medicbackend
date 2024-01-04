@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 @Setter
@@ -36,5 +38,11 @@ public class reports {
     public void generateRandomRapNum() {
         Random random = new Random();
         this.rapNum = (long) (random.nextDouble() * 10000000000L);
+    }
+
+    public void setCurrentDate() {
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // You can change the format if needed
+        this.rapDate = currentDate.format(formatter);
     }
 }

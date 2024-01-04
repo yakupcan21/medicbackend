@@ -1,9 +1,6 @@
 package com.example.medic.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,10 +13,20 @@ public class doctor {
     @Id
     @GeneratedValue
     private long docId;
+    @NotBlank(message = "Name is required")
     private String docName;
+    @NotBlank(message = "Name is required")
     private String docSurname;
+    @Temporal(TemporalType.DATE)
     private String docDateOfBirth;
-    private long docPhoneNo;
+    @NotBlank(message = "Phone number is required")
+    @Size(min = 10, max = 15, message = "Phone number should be between 10 and 15 digits")
+    private String docPhoneNo;
+
+    @NotBlank(message = "Email is required")
+    @Email(message = "Invalid email format")
+    private String docEmail;
+    @NotBlank(message = "Password is required")
     private String docPassword;
     private int docAge;
     private int docHeight;
@@ -31,12 +38,13 @@ public class doctor {
 
     public doctor() { super(); }
 
-    public doctor(long docId, String docName, String docSurname, String docDateOfBirth, long docPhoneNo, String docPassword, int docAge, int docHeight, float docWeight, float docBmi, String docTitle, String docDepartment, String docHospital) {
+    public doctor(long docId, String docName, String docSurname, String docDateOfBirth, String docPhoneNo, String docEmail, String docPassword, int docAge, int docHeight, float docWeight, float docBmi, String docTitle, String docDepartment, String docHospital) {
         this.docId = docId;
         this.docName = docName;
         this.docSurname = docSurname;
         this.docDateOfBirth = docDateOfBirth;
         this.docPhoneNo = docPhoneNo;
+        this.docEmail = docEmail;
         setDocPassword(docPassword);
         this.docAge = docAge;
         this.docHeight = docHeight;
