@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -45,8 +46,40 @@ public class Controller {
     public Iterable<reports> getAllReports(){ return reportsRepository.findAll(); }
 
 
-    @GetMapping
-    
+    @GetMapping("/createReports/{id}")
+    public createReport getCreateReports(@PathVariable Long id) {
+        Optional<createReport> createReport = createReportRepository.findById(id);
+        if (createReport.isPresent()) return createReport.get();
+        return new createReport();
+    }
+
+    @GetMapping("/doctor/{id0}")
+    public doctor getDoctor(@PathVariable Long id) {
+        Optional<doctor> doctor = doctorRepository.findById(id);
+        if (doctor.isPresent()) return doctor.get();
+        return new doctor();
+    }
+
+    @GetMapping("/images/{id}")
+    public ImageService getImageService(@PathVariable Long id) {
+        Optional<ImageService> ImageService = ImageServiceRepository.findById(id);
+        if (ImageService.isPresent()) return ImageService.get();
+        return new ImageService();
+    }
+
+    @GetMapping("/patient/{id}")
+    public patients getPatient(@PathVariable Long id) {
+        Optional<patients> patients = patientsRepository.findById(id);
+        if (patients.isPresent()) return patients.get();
+        return new patients();
+    }
+
+    @GetMapping("/report{id}")
+    public reports getReport(@PathVariable Long id) {
+        Optional<reports> reports = reportsRepository.findById(id);
+        if (reports.isPresent()) return reports.get();
+        return new reports();
+    }
 
     /*İLYAS*/
     @PostMapping("/upload")
