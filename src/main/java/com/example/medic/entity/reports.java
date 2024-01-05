@@ -42,7 +42,7 @@ public class reports {
 
     public void setCurrentDate() {
         LocalDate currentDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // You can change the format if needed
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         this.rapDate = currentDate.format(formatter);
     }
 }

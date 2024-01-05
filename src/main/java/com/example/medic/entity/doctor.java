@@ -13,20 +13,11 @@ public class doctor {
     @Id
     @GeneratedValue
     private long docId;
-    @NotBlank(message = "Name is required")
     private String docName;
-    @NotBlank(message = "Name is required")
     private String docSurname;
-    @Temporal(TemporalType.DATE)
     private String docDateOfBirth;
-    @NotBlank(message = "Phone number is required")
-    @Size(min = 10, max = 15, message = "Phone number should be between 10 and 15 digits")
     private String docPhoneNo;
-
-    @NotBlank(message = "Email is required")
-    @Email(message = "Invalid email format")
     private String docEmail;
-    @NotBlank(message = "Password is required")
     private String docPassword;
     private int docAge;
     private int docHeight;
