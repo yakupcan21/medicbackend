@@ -74,12 +74,27 @@ public class Controller {
         return new patients();
     }
 
-    @GetMapping("/report{id}")
+    @GetMapping("/report/{id}")
     public reports getReport(@PathVariable Long id) {
         Optional<reports> reports = reportsRepository.findById(id);
         if (reports.isPresent()) return reports.get();
         return new reports();
     }
+
+    @PostMapping(path ="/createCreateReport/{id}")
+    public createReport post(@RequestBody createReport createReport) {return createReportRepository.save(createReport);}
+
+    @PostMapping(path ="/createDoctor/{id}")
+    public doctor post(@RequestBody doctor doctor) {return doctorRepository.save(doctor); }
+
+    @PostMapping(path ="createImageReport/{id}")
+    public ImageService post(@RequestBody ImageService ImageService) {return ImageServiceRepository.save(ImageService); }
+
+    @PostMapping(path ="/createPatients/{id}")
+    public patients post(@RequestBody patients patients) {return patientsRepository.save(patients); }
+
+    @PostMapping(path ="/createReport/{id}")
+    public reports post(@RequestBody reports reports) {return reportsRepository.save(reports); }
 
     /*İLYAS*/
     @PostMapping("/upload")
