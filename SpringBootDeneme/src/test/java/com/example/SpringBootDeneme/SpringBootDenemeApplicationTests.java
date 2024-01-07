@@ -1,10 +1,10 @@
-package com.example.medic;
+package com.example.SpringBootDeneme;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MedicApplicationTests {
+class SpringBootDenemeApplicationTests {
 
 	@Test
 	void contextLoads() {

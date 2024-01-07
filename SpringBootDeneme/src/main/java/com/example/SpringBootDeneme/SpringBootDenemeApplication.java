@@ -1,13 +1,13 @@
-package com.example.medic;
+package com.example.SpringBootDeneme;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MedicApplication {
+public class SpringBootDenemeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MedicApplication.class, args);
+		SpringApplication.run(SpringBootDenemeApplication.class, args);
 	}
 
 }
