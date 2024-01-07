@@ -53,7 +53,7 @@ public class Controller {
         return new createReport();
     }
 
-    @GetMapping("/doctor/{id0}")
+    @GetMapping("/doctor/{id}")
     public doctor getDoctor(@PathVariable Long id) {
         Optional<doctor> doctor = doctorRepository.findById(id);
         if (doctor.isPresent()) return doctor.get();

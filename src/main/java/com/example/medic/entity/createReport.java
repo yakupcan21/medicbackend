@@ -1,18 +1,15 @@
 package com.example.medic.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+@Data
 @Entity
 @Setter
 @Getter
-@Table(name = "createReports")
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Table(name = "createReport")
 public class createReport {
     
     @Id

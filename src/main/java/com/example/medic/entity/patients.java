@@ -1,6 +1,7 @@
 package com.example.medic.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,6 +10,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
+@Data
 @Table(name = "patients")
 public class patients { // Renamed class to follow Java naming conventions
 

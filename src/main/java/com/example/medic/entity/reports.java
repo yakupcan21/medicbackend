@@ -1,6 +1,7 @@
 package com.example.medic.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.util.Random;
 @Setter
 @Getter
 @Entity
+@Data
 @Table(name = "reports")
 public class reports {
     @Id

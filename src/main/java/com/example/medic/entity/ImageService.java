@@ -1,6 +1,11 @@
 package com.example.medic.entity;
 
 import com.example.medic.repos.createReportRepository;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -8,6 +13,11 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @Service
+@Getter
+@Setter
+@Entity
+@Data
+@Table(name = "ImageService")
 public class ImageService {
 
     @Autowired
